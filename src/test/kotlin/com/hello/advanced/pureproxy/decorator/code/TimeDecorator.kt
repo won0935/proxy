@@ -1,9 +1,9 @@
 package com.hello.advanced.pureproxy.decorator.code
 
-class MessageDecorator(
+class TimeDecorator(
     private val component: Component
 ) : Component {
     override fun operation(): String {
-       return "message :: " + component.operation()
+       return "timed :: " + component.operation()
     }
 }
