@@ -1,7 +1,7 @@
-package com.hello.advanced.pureproxy
+package com.hello.advanced.pureproxy.proxy
 
-import com.hello.advanced.pureproxy.code.CacheProxy
-import com.hello.advanced.pureproxy.code.RealSubject
+import com.hello.advanced.pureproxy.proxy.code.CacheProxy
+import com.hello.advanced.pureproxy.proxy.code.RealSubject
 import org.junit.jupiter.api.Test
 
 class ProxyPatternTest {

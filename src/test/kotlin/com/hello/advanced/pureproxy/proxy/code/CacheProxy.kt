@@ -1,4 +1,4 @@
-package com.hello.advanced.pureproxy.code
+package com.hello.advanced.pureproxy.proxy.code
 
 class CacheProxy(
     private val target: Subject
