@@ -30,9 +30,4 @@ class InterfaceProxyConfig {
         return OrderRepositoryInterfaceProxy(orderRepositoryV1Impl, logTrace)
     }
 
-    @Bean
-    fun logTrace(): LogTrace {
-        return ThreadLocalLogTrace()
-    }
-
 }
