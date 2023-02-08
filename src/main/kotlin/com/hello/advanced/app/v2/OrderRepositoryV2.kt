@@ -1,7 +1,7 @@
 package com.hello.advanced.app.v2
 
-class OrderRepositoryV2 {
-    fun save(itemId: String) {
+open class OrderRepositoryV2 {
+    open fun save(itemId: String) {
         require(itemId != "ex")
         sleep(1000)
     }
