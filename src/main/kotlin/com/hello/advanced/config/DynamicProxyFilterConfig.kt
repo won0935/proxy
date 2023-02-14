@@ -3,17 +3,20 @@ package com.hello.advanced.config
 import com.hello.advanced.app.v1.*
 import com.hello.advanced.config.logtrace.LogTrace
 import com.hello.advanced.config.v2_dynamicproxy.handler.LogTraceBasicHandler
+import com.hello.advanced.config.v2_dynamicproxy.handler.LogTraceFilterHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.lang.reflect.Proxy
 
 @Configuration
-class DynamicProxyBasicConfig {
+class DynamicProxyFilterConfig {
+
+    private val PATTERNS = arrayOf("request*", "order*", "save*")
 
     @Bean
     fun orderControllerV1(logTrace: LogTrace): OrderControllerV1 {
         val target = OrderControllerV1Impl(orderServiceV1(logTrace)) // 프록시 객체 반환
-        val handler = LogTraceBasicHandler(target, logTrace)
+        val handler = LogTraceFilterHandler(target, logTrace, PATTERNS)
 
         return Proxy.newProxyInstance(
             OrderControllerV1::class.java.classLoader,
@@ -25,7 +28,7 @@ class DynamicProxyBasicConfig {
     @Bean
     fun orderServiceV1(logTrace: LogTrace): OrderServiceV1 {
         val target = OrderServiceV1Impl(orderRepositoryV1(logTrace)) // 프록시 객체 반환
-        val handler = LogTraceBasicHandler(target, logTrace)
+        val handler = LogTraceFilterHandler(target, logTrace, PATTERNS)
 
         return Proxy.newProxyInstance(
             OrderServiceV1::class.java.classLoader,
@@ -37,7 +40,7 @@ class DynamicProxyBasicConfig {
     @Bean
     fun orderRepositoryV1(logTrace: LogTrace): OrderRepositoryV1 {
         val target = OrderRepositoryV1Impl()
-        val handler = LogTraceBasicHandler(target, logTrace)
+        val handler = LogTraceFilterHandler(target, logTrace, PATTERNS)
 
         return Proxy.newProxyInstance(
             OrderRepositoryV1::class.java.classLoader,
