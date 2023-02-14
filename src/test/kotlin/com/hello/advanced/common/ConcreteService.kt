@@ -1,6 +1,6 @@
 package com.hello.advanced.common
 
-class ConcreteService : ServiceInterface {
+open class ConcreteService : ServiceInterface {
 
     override fun save() {
         TODO("Not yet implemented")
