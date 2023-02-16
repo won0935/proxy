@@ -1,12 +1,12 @@
 package com.hello.advanced.common.service
 
-open class ConcreteService : ServiceInterface {
+import mu.KotlinLogging
 
-    override fun save() {
-        TODO("Not yet implemented")
+open class ConcreteService {
+    val log = KotlinLogging.logger {}
+
+    open fun call() {
+        log.info("ConcreteService 호출")
     }
 
-    override fun find() {
-        TODO("Not yet implemented")
-    }
 }
