@@ -57,4 +57,28 @@ class ProxyFactoryTest {
         Assertions.assertThat(AopUtils.isCglibProxy(proxy)).isTrue
     }
 
+
+    @Test
+    @DisplayName("proxyTargetClass 옵션을 사용하면 인터페이스가 있어도 CGLIB 사용")
+    fun proxyTargetClass() {
+
+        val target = ServiceImpl()
+        val proxyFactory = ProxyFactory(target)
+        proxyFactory.isProxyTargetClass = true //기본값 false -> 인터페이스 사용, true 로 바꾸면 CGLIB 사용
+
+        proxyFactory.addAdvice(TimeAdvice())
+
+        val proxy = proxyFactory.proxy as ServiceInterface
+
+        log.info { "target ${target.javaClass}" }
+        log.info { "proxy ${proxy.javaClass}" }
+
+        proxy.save()
+
+        Assertions.assertThat(AopUtils.isAopProxy(proxy)).isTrue
+        Assertions.assertThat(AopUtils.isJdkDynamicProxy(proxy)).isFalse
+        Assertions.assertThat(AopUtils.isCglibProxy(proxy)).isTrue
+
+    }
+
 }
