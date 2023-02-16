@@ -1,7 +1,7 @@
 package com.hello.advanced.cglib
 
 import com.hello.advanced.cglib.code.TimeMethodInterceptor
-import com.hello.advanced.common.ConcreteService
+import com.hello.advanced.common.service.ConcreteService
 import org.junit.jupiter.api.Test
 import org.springframework.cglib.proxy.Enhancer
 

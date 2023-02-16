@@ -1,4 +1,4 @@
-package com.hello.advanced.common
+package com.hello.advanced.common.service
 
 open class ConcreteService : ServiceInterface {
 
