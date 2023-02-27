@@ -1,6 +1,5 @@
 package com.hello.advanced.config.v1_proxy.concrete_proxy
 
-import com.hello.advanced.app.v1.OrderRepositoryV1
 import com.hello.advanced.app.v2.OrderRepositoryV2
 import com.hello.advanced.config.logtrace.LogTrace
 import com.hello.advanced.config.logtrace.TraceStatus
