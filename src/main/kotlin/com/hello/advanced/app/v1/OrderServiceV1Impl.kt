@@ -1,6 +1,6 @@
 package com.hello.advanced.app.v1
 
-class OrderServiceV1Impl(
+open class OrderServiceV1Impl(
     private val orderRepositoryV1: OrderRepositoryV1
 ) : OrderServiceV1 {
     override fun orderItem(itemId: String) {

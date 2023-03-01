@@ -1,6 +1,6 @@
 package com.hello.advanced.app.v1
 
-class OrderRepositoryV1Impl : OrderRepositoryV1 {
+open class OrderRepositoryV1Impl : OrderRepositoryV1 {
     override fun save(itemId: String) {
         require(itemId != "ex")
         sleep(1000)
