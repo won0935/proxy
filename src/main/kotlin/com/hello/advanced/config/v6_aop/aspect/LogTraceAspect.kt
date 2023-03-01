@@ -7,11 +7,11 @@ import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
 
 
-@Aspect
+@Aspect //어드바이저가 됨
 class LogTraceAspect(private val logTrace: LogTrace) {
 
-    @Around("execution(* com.hello.advanced.app..*(..)) && !execution(* com.hello.advanced.app..noLog(..))")
-    fun execute(joinPoint: ProceedingJoinPoint): Any {
+    @Around("execution(* com.hello.advanced.app..*(..)) && !execution(* com.hello.advanced.app..noLog(..))") //포인트 컷이 됨
+    fun execute(joinPoint: ProceedingJoinPoint): Any { //어드바이즈가 됨
 
         val status: TraceStatus
         val message = joinPoint.signature.toShortString()
