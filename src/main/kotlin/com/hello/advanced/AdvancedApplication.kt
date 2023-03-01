@@ -3,6 +3,7 @@ package com.hello.advanced
 import com.hello.advanced.config.logtrace.LogTrace
 import com.hello.advanced.config.logtrace.ThreadLocalLogTrace
 import com.hello.advanced.config.v5_autoproxy.AutoProxyConfig
+import com.hello.advanced.config.v6_aop.AopConfig
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
@@ -18,7 +19,8 @@ import org.springframework.context.annotation.Import
 //@Import(LogTraceConfig::class, ProxyFactoryConfigV1::class)
 //@Import(LogTraceConfig::class, ProxyFactoryConfigV2::class)
 //@Import(BeanPostProcessorConfig::class)
-@Import(AutoProxyConfig::class)
+//@Import(AutoProxyConfig::class)
+@Import(AopConfig::class)
 @SpringBootApplication(scanBasePackages = ["com.hello.advanced.app"])
 class AdvancedApplication
 
